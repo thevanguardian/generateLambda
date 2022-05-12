@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "generatedLambdaFunction" {
   filename         = data.archive_file.generatedLambdaFunction.output_path
   function_name    = var.generatedName
-  role             = aws_iam_role.generatedRole.arn
+  role             = module.iam_role.iamRoleArn
   handler          = var.lambdaHandler
   runtime          = var.lambdaRuntime
   source_code_hash = filebase64sha256(data.archive_file.generatedLambdaFunction.output_path)

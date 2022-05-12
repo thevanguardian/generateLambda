@@ -6,6 +6,15 @@ variable "iamPolicyResources" {
   type        = list(any)
   description = "iamPolicyResources (list): List of resources that have the actions assigned during IAM policy generation"
 }
+variable "unscopedIamPolicyActions" {
+  type        = list(any)
+  description = "unscopedIamPolicyActions (list): List of actions to assign to resource '*'."
+  default = [
+    "logs:CreateLogGroup",
+    "logs:CreateLogStream",
+    "logs:PutLogEvents",
+  ]
+}
 
 variable "generatedName" {
   type        = string
