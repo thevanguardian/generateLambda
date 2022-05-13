@@ -1,3 +1,8 @@
+variable "useRole" {
+  type        = string
+  description = "useRole (string): Designates a pre-existing IAM Role to assign to the Lambda function."
+  default     = ""
+}
 variable "iamPolicyActions" {
   type        = list(any)
   description = "iamPolicyActions (list): List of actions to pass to the IAM policy generation"
@@ -19,6 +24,7 @@ variable "unscopedIamPolicyActions" {
 variable "generatedName" {
   type        = string
   description = "generatedName (str): Name used across various resource identifiers"
+  default     = ""
 }
 
 variable "lambdaEnvVariables" {
@@ -36,11 +42,13 @@ variable "lambdaHandler" {
 variable "lambdaName" {
   type        = string
   description = "lambdaFileName (str): Identifies the Lambda name"
+  default     = ""
 }
 
 variable "lambdaSourcePath" {
   type        = string
   description = "lambdaSourcePath (str): Dir Path to the Lambda source file(s)"
+  default     = ""
 }
 
 variable "lambdaRuntime" {

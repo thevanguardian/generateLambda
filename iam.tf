@@ -1,8 +1,9 @@
 module "iam_role" {
+  count              = var.useRole != "" ? 1 : 0
   source             = "thevanguardian/generateIamRole/aws"
   version            = "1.0.3"
   roleName           = "generateLambdaAccess"
-  rolePath           = "/service"
+  rolePath           = "/service/"
   maxSessionDuration = 7200
 
   assumeIdentifiers = ["lambda.amazonaws.com"]
